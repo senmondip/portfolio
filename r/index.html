@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Redirecting to Mondip Sen Verified Portfolio...</title>
+<script>
+  // Extract token from query params or URL path
+  const params = new URLSearchParams(window.location.search);
+  const token = params.get('t') || window.location.pathname.split('/').filter(Boolean).pop();
+  
+  // Telemetry ping to dashboard
+  fetch('https://view.mondipsen.com/api/telemetry?token=' + encodeURIComponent(token), { mode: 'no-cors' }).catch(()=>{});
+  
+  // Redirect to main resume viewer
+  window.location.replace('../index.html?ref=' + encodeURIComponent(token));
+</script>
+</head>
+<body>
+  <p>Loading verified executive resume portfolio...</p>
+</body>
+</html>
