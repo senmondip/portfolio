@@ -7,19 +7,24 @@
 <script>
   // Extract token from query params or URL path
   const params = new URLSearchParams(window.location.search);
-  const token = params.get('t') || window.location.pathname.split('/').filter(Boolean).pop() || 'direct';
+  const token = params.get('t') || window.location.pathname.split('/').filter(Boolean).pop() || 'direct_visitor';
+  const ref = document.referrer || 'direct';
   
-  // Store referral token in client storage for portfolio viewer
+  // Store referral token in client session for portfolio viewer
   try {
     sessionStorage.setItem('recruiter_token', token);
+    sessionStorage.setItem('recruiter_ref', ref);
     sessionStorage.setItem('visit_time', new Date().toISOString());
   } catch (e) {}
 
-  // Pure Option B: Clean direct redirect (Zero Tailscale funnel dependencies)
+  // Redirect to main portfolio viewer
   window.location.replace('../index.html?ref=' + encodeURIComponent(token));
 </script>
 </head>
 <body style="font-family:system-ui,sans-serif; background:#0f172a; color:#f8fafc; display:flex; align-items:center; justify-content:center; height:100vh; margin:0;">
-  <p style="font-size:16px;">Loading verified executive portfolio...</p>
+  <div style="text-align:center;">
+    <h2 style="font-weight:600; margin-bottom:8px;">Mondip Sen — Solutions Engineering Portfolio</h2>
+    <p style="color:#94a3b8; font-size:14px;">Redirecting to verified master resume & systems portfolio...</p>
+  </div>
 </body>
 </html>
