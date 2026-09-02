@@ -9,7 +9,7 @@
   const token = params.get('t') || window.location.pathname.split('/').filter(Boolean).pop();
   
   // Telemetry ping to dashboard
-  fetch('https://view.mondipsen.com/api/telemetry?token=' + encodeURIComponent(token), { mode: 'no-cors' }).catch(()=>{});
+  fetch('https://clawbox.comet-elver.ts.net/c?token=' + encodeURIComponent(token), { mode: 'no-cors' }).catch(()=>{});
   
   // Redirect to main resume viewer
   window.location.replace('../index.html?ref=' + encodeURIComponent(token));
