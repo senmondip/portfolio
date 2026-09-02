@@ -17,6 +17,17 @@
     sessionStorage.setItem('visit_time', new Date().toISOString());
   } catch (e) {}
 
+  // Tell the telemetry Worker this link was opened. sendBeacon survives the
+  // navigation below; a plain fetch is cancelled by it, which is why earlier
+  // attempts recorded nothing.
+  try {
+    const ping = 'https://resume-telemetry.mondipsen.workers.dev/c?t=' + encodeURIComponent(token)
+      + '&r=' + encodeURIComponent(ref);
+    if (!(navigator.sendBeacon && navigator.sendBeacon(ping))) {
+      fetch(ping, { mode: 'no-cors', keepalive: true }).catch(() => {});
+    }
+  } catch (e) {}
+
   // Redirect to main portfolio viewer
   window.location.replace('../index.html?ref=' + encodeURIComponent(token));
 </script>
