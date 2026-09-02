@@ -2,29 +2,24 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Redirecting to Mondip Sen Verified Portfolio...</title>
 <script>
   // Extract token from query params or URL path
   const params = new URLSearchParams(window.location.search);
-  const token = params.get('t') || window.location.pathname.split('/').filter(Boolean).pop();
+  const token = params.get('t') || window.location.pathname.split('/').filter(Boolean).pop() || 'direct';
   
-  // Telemetry ping to dashboard
-  const ping = 'https://clawbox.comet-elver.ts.net/c?token=' + encodeURIComponent(token);
-  // sendBeacon survives the navigation below; a plain fetch is cancelled by
-  // it, which is why nothing was ever recorded.
+  // Store referral token in client storage for portfolio viewer
   try {
-    if (!(navigator.sendBeacon && navigator.sendBeacon(ping))) {
-      fetch(ping, { mode: 'no-cors', keepalive: true }).catch(()=>{});
-    }
-  } catch (e) {
-    try { fetch(ping, { mode: 'no-cors', keepalive: true }).catch(()=>{}); } catch (e2) {}
-  }
-  
-  // Redirect to main resume viewer
+    sessionStorage.setItem('recruiter_token', token);
+    sessionStorage.setItem('visit_time', new Date().toISOString());
+  } catch (e) {}
+
+  // Pure Option B: Clean direct redirect (Zero Tailscale funnel dependencies)
   window.location.replace('../index.html?ref=' + encodeURIComponent(token));
 </script>
 </head>
-<body>
-  <p>Loading verified executive resume portfolio...</p>
+<body style="font-family:system-ui,sans-serif; background:#0f172a; color:#f8fafc; display:flex; align-items:center; justify-content:center; height:100vh; margin:0;">
+  <p style="font-size:16px;">Loading verified executive portfolio...</p>
 </body>
 </html>
