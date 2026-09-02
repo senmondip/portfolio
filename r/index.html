@@ -9,7 +9,16 @@
   const token = params.get('t') || window.location.pathname.split('/').filter(Boolean).pop();
   
   // Telemetry ping to dashboard
-  fetch('https://clawbox.comet-elver.ts.net/c?token=' + encodeURIComponent(token), { mode: 'no-cors' }).catch(()=>{});
+  const ping = 'https://clawbox.comet-elver.ts.net/c?token=' + encodeURIComponent(token);
+  // sendBeacon survives the navigation below; a plain fetch is cancelled by
+  // it, which is why nothing was ever recorded.
+  try {
+    if (!(navigator.sendBeacon && navigator.sendBeacon(ping))) {
+      fetch(ping, { mode: 'no-cors', keepalive: true }).catch(()=>{});
+    }
+  } catch (e) {
+    try { fetch(ping, { mode: 'no-cors', keepalive: true }).catch(()=>{}); } catch (e2) {}
+  }
   
   // Redirect to main resume viewer
   window.location.replace('../index.html?ref=' + encodeURIComponent(token));
