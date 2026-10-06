@@ -6,7 +6,7 @@
 <style>
   @page {
     size: letter;
-    margin: 0.40in 0.55in 0.40in 0.55in;
+    margin: 0.45in 0.55in 0.45in 0.55in;
   }
   * { 
     box-sizing: border-box; 
@@ -16,8 +16,8 @@
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     color: #1e293b;
-    line-height: 1.32;
-    font-size: 8.95pt;
+    line-height: 1.36;
+    font-size: 9.15pt;
     -webkit-font-smoothing: antialiased;
   }
   
@@ -26,10 +26,10 @@
     text-align: center;
     border-bottom: 1.5px solid #2563eb;
     padding-bottom: 5px;
-    margin-bottom: 7px;
+    margin-bottom: 8px;
   }
   .name {
-    font-size: 19.5pt;
+    font-size: 20pt;
     font-weight: 800;
     color: #0f172a;
     letter-spacing: -0.01em;
@@ -37,13 +37,13 @@
     text-transform: uppercase;
   }
   .title-headline {
-    font-size: 9.8pt;
+    font-size: 10pt;
     font-weight: 700;
     color: #2563eb;
     margin-bottom: 3px;
   }
   .contact {
-    font-size: 8.6pt;
+    font-size: 8.8pt;
     color: #475569;
     font-weight: 500;
   }
@@ -58,36 +58,36 @@
   
   /* Section Headers */
   h2 {
-    font-size: 9.3pt;
+    font-size: 9.5pt;
     font-weight: 800;
     color: #0f172a;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     border-bottom: 1px solid #cbd5e1;
     padding-bottom: 2px;
-    margin-top: 7px;
-    margin-bottom: 3.5px;
+    margin-top: 9px;
+    margin-bottom: 4px;
     break-after: avoid;
   }
   
   /* Paragraphs */
   p.summary {
-    font-size: 8.75pt;
+    font-size: 8.95pt;
     color: #334155;
     text-align: justify;
-    margin-bottom: 3.5px;
-    line-height: 1.32;
+    margin-bottom: 4px;
+    line-height: 1.36;
   }
   
   /* Skills Grid */
   .skills-block {
-    margin-bottom: 3.5px;
+    margin-bottom: 4px;
   }
   .skill-item {
-    font-size: 8.6pt;
+    font-size: 8.8pt;
     color: #334155;
-    margin-bottom: 2.2px;
-    line-height: 1.32;
+    margin-bottom: 2.8px;
+    line-height: 1.36;
   }
   .skill-item strong {
     color: #0f172a;
@@ -96,27 +96,27 @@
   
   /* Experience Blocks */
   .job-block {
-    margin-bottom: 6px;
+    margin-bottom: 8px;
   }
   .job-header {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin-bottom: 1px;
+    margin-bottom: 2px;
     break-after: avoid;
   }
   .job-title {
-    font-size: 9.15pt;
+    font-size: 9.3pt;
     font-weight: 700;
     color: #0f172a;
   }
   .company {
-    font-size: 9.15pt;
+    font-size: 9.3pt;
     font-weight: 600;
     color: #334155;
   }
   .job-meta {
-    font-size: 8.3pt;
+    font-size: 8.5pt;
     color: #64748b;
     font-style: italic;
     font-weight: 500;
@@ -124,10 +124,10 @@
     text-align: right;
   }
   .job-desc {
-    font-size: 8.65pt;
+    font-size: 8.85pt;
     color: #334155;
-    margin-bottom: 2px;
-    line-height: 1.32;
+    margin-bottom: 3px;
+    line-height: 1.36;
   }
   
   /* Bullets */
@@ -139,10 +139,10 @@
   .bullet-list li {
     position: relative;
     padding-left: 13px;
-    margin-bottom: 2.4px;
-    font-size: 8.65pt;
+    margin-bottom: 3px;
+    font-size: 8.85pt;
     color: #334155;
-    line-height: 1.32;
+    line-height: 1.36;
     break-inside: avoid;
   }
   .bullet-list li::before {
@@ -152,32 +152,39 @@
     top: 0;
     color: #2563eb;
     font-weight: bold;
-    font-size: 9pt;
+    font-size: 9.2pt;
   }
   .bullet-list li strong {
     color: #0f172a;
     font-weight: 700;
   }
   
+  /* Page break utility */
+  .page-break {
+    break-before: page;
+    page-break-before: always;
+  }
+
   /* Certifications & Education */
   .cert-row {
-    font-size: 8.6pt;
+    font-size: 8.8pt;
     color: #334155;
-    margin-bottom: 2.2px;
-    line-height: 1.32;
+    margin-bottom: 2.8px;
+    line-height: 1.36;
   }
   .cert-row strong {
     color: #0f172a;
   }
   .edu-row {
-    font-size: 8.65pt;
+    font-size: 8.85pt;
     color: #334155;
-    margin-top: 1.5px;
+    margin-top: 2px;
   }
 </style>
 </head>
 <body>
 
+<!-- PAGE 1 -->
 <div class="header">
   <div class="name">MONDIP SEN</div>
   <div class="title-headline">Senior Backup &amp; Data Protection Engineer | Cloud, Kubernetes &amp; Storage | IaC, Observability &amp; AI</div>
@@ -221,7 +228,8 @@ Senior data protection and infrastructure engineer with <strong>20+ years</stron
   </ul>
 </div>
 
-<div class="job-block">
+<!-- PAGE 2 -->
+<div class="job-block page-break">
   <div class="job-header">
     <div><span class="job-title">Global Data Protection Team Lead / Sr. Data Protection Engineer</span> — <span class="company">IPsoft (Amelia US LLC)</span></div>
     <div class="job-meta">New York, NY · Mar 2016 – Nov 2024</div>
@@ -260,16 +268,56 @@ Senior data protection and infrastructure engineer with <strong>20+ years</stron
   </ul>
 </div>
 
+<!-- PAGE 3 -->
+<div class="job-block page-break">
+  <div class="job-header">
+    <div><span class="job-title">Hyper-V / Citrix VDI Client Support Engineer</span> — <span class="company">Diligex Cloud Services</span></div>
+    <div class="job-meta">New York, NY · Feb 2014 – Oct 2014</div>
+  </div>
+  <div class="job-desc">Cloud hosted desktop virtualization and managed infrastructure for corporate accounts including <strong>Viacom, US Space, and Sucherman Consulting</strong>.</div>
+  <ul class="bullet-list">
+    <li><strong>Supported enterprise cloud-hosted desktop virtualization</strong> (Citrix XenDesktop/XenApp, Microsoft Hyper-V) across Windows Server 2008 R2/2012 environments integrated with AWS EC2 and S3 hybrid storage.</li>
+    <li><strong>Monitored multi-tenant client infrastructure and network health</strong>, proactively resolving high-priority alerts to maintain uptime for enterprise media and aerospace clients.</li>
+    <li><strong>Handled Tier 2/3 escalations</strong> for Citrix policy management, virtual desktop provisioning, user profiles, and hosted Exchange connectivity via phone, ticketing, and remote tools.</li>
+  </ul>
+</div>
+
 <div class="job-block">
   <div class="job-header">
-    <div><span class="job-title">Earlier Technical Roles</span></div>
-    <div class="job-meta">2009 – 2014</div>
+    <div><span class="job-title">Network &amp; Security Engineer / Cloud Support Lead</span> — <span class="company">GetFugu</span></div>
+    <div class="job-meta">New York, NY · Aug 2010 – Nov 2013</div>
   </div>
+  <div class="job-desc">Cloud rendering infrastructure and network security in partnership with <strong>PowerMediaGroup and Georgia Tech</strong>.</div>
   <ul class="bullet-list">
-    <li><strong>Hyper-V / Citrix VDI Support Engineer</strong>, Diligex Cloud Services (clients: Viacom, US Space) — managed-service cloud VDI on Hyper-V and Citrix with AWS EC2/S3.</li>
-    <li><strong>Network &amp; Security Engineer</strong>, GetFugu — scalable cloud-rendering infrastructure, intrusion detection, penetration testing.</li>
-    <li><strong>Windows Network Support Analyst</strong>, Star Alliance Capital (40 Wall Street) — trading-floor support for <strong>200+ NYSE high-frequency equity and options traders</strong> (Lightspeed/DAS).</li>
-    <li><strong>Linux/UNIX System Administrator</strong>, Intersessions Hosting — UNIX and Solaris hosting administration.</li>
+    <li><strong>Engineered and managed network security monitoring and cloud-hosted rendering infrastructure</strong> across UNIX, Solaris (8/9/10), and Linux server farms.</li>
+    <li><strong>Conducted regular vulnerability assessments and penetration testing</strong>, hardening network boundaries with intrusion detection systems (IDS), Untangle, and IPsec VPN tunnels.</li>
+    <li><strong>Administered DNS/BIND, network routing, and server provisioning</strong> across Rackspace and AWS cloud infrastructure to support scalable image rendering workloads.</li>
+  </ul>
+</div>
+
+<div class="job-block">
+  <div class="job-header">
+    <div><span class="job-title">Windows Network Support Analyst</span> — <span class="company">Star Alliance Capital Partners</span></div>
+    <div class="job-meta">40 Wall Street, New York, NY · Nov 2009 – Jul 2010</div>
+  </div>
+  <div class="job-desc">Trading-floor infrastructure support for proprietary equity and options trading desks (<strong>Dimension Trading Group, CBSX</strong>).</div>
+  <ul class="bullet-list">
+    <li><strong>Delivered mission-critical trading-floor systems support for 200+ NYSE high-frequency proprietary equity and options traders</strong> in an active, zero-downtime environment.</li>
+    <li><strong>Maintained and supported low-latency electronic trading platforms</strong> (<strong>Lightspeed, DAS Trader</strong>), diagnosing real-time order-routing bottlenecks, network feeds, and multi-monitor trader workstations.</li>
+    <li><strong>Executed daily market-open readiness verifications</strong>, emergency hardware failovers, and rapid incident response under high-pressure market conditions.</li>
+  </ul>
+</div>
+
+<div class="job-block">
+  <div class="job-header">
+    <div><span class="job-title">Linux/UNIX System &amp; Network Administrator</span> — <span class="company">Intersessions Hosting</span></div>
+    <div class="job-meta">Jersey City, NJ · Aug 2006 – Oct 2009</div>
+  </div>
+  <div class="job-desc">24/7 datacenter hosting operations and colocation infrastructure support.</div>
+  <ul class="bullet-list">
+    <li><strong>Monitored and maintained Linux and UNIX hosting environments</strong> (Red Hat, CentOS, SUSE, Debian, FreeBSD, and Solaris) in a high-density datacenter facility.</li>
+    <li><strong>Assembled, racked, and provisioned physical servers</strong>, configuring KVM virtualization, network interfaces, storage, and automated OS deployment.</li>
+    <li><strong>Provided 24/7 on-call incident triage and remote-hands datacenter support</strong>, maintaining Nagios monitoring and resolving server and network outages.</li>
   </ul>
 </div>
 
