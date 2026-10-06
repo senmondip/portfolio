@@ -3,13 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mondip Sen - Executive Infrastructure & Data Protection Portfolio</title>
+<title>Mondip Sen - Executive Infrastructure &amp; Data Protection Portfolio</title>
 <style>
   :root {
     --primary: #2563eb;
+    --primary-dark: #1d4ed8;
     --dark: #0f172a;
     --text: #334155;
     --bg: #f8fafc;
+    --border: #e2e8f0;
+    --card-bg: #ffffff;
+  }
+  * {
+    box-sizing: border-box;
   }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -18,23 +24,24 @@
     margin: 0;
     padding: 0;
     line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
   }
   header {
     background: white;
-    border-bottom: 1px solid #e2e8f0;
-    padding: 2.5rem 1rem;
+    border-bottom: 1px solid var(--border);
+    padding: 2.5rem 1rem 2rem 1rem;
     text-align: center;
   }
   h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: 800;
     color: var(--dark);
-    margin: 0 0 0.5rem 0;
+    margin: 0 0 0.4rem 0;
     text-transform: uppercase;
     letter-spacing: -0.02em;
   }
   .subtitle {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     font-weight: 600;
     color: var(--primary);
     margin-bottom: 0.8rem;
@@ -49,29 +56,32 @@
     font-weight: 500;
     margin: 0 0.5rem;
   }
+  .contact-bar a:hover {
+    text-decoration: underline;
+  }
   .container {
-    max-width: 900px;
+    max-width: 980px;
     margin: 2rem auto;
     padding: 0 1rem;
   }
   .card {
-    background: white;
+    background: var(--card-bg);
     border-radius: 12px;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border);
     padding: 1.8rem;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    margin-bottom: 1.8rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
   }
   .card h2 {
     font-size: 1.25rem;
     color: var(--dark);
     margin-top: 0;
     border-bottom: 1px solid #f1f5f9;
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.6rem;
   }
   .btn-group {
     display: flex;
-    gap: 1rem;
+    gap: 0.8rem;
     margin-top: 1.2rem;
     flex-wrap: wrap;
   }
@@ -79,19 +89,22 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.75rem 1.4rem;
+    padding: 0.7rem 1.25rem;
     border-radius: 8px;
     font-weight: 600;
     text-decoration: none;
-    font-size: 0.95rem;
-    transition: all 0.2s;
+    font-size: 0.92rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
   }
   .btn-primary {
     background: var(--primary);
     color: white;
+    border: 1px solid transparent;
   }
   .btn-primary:hover {
-    background: #1d4ed8;
+    background: var(--primary-dark);
+    box-shadow: 0 2px 4px rgba(37,99,235,0.25);
   }
   .btn-secondary {
     background: white;
@@ -100,22 +113,32 @@
   }
   .btn-secondary:hover {
     background: #f1f5f9;
+    border-color: #94a3b8;
+  }
+  .btn-teal {
+    background: #0f766e;
+    color: white;
+    border: 1px solid transparent;
+  }
+  .btn-teal:hover {
+    background: #115e59;
+    box-shadow: 0 2px 4px rgba(15,118,110,0.25);
   }
   .metrics-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
     gap: 1rem;
     margin: 1.5rem 0;
   }
   .metric-box {
     background: #f8fafc;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border);
     border-radius: 8px;
     padding: 1rem;
     text-align: center;
   }
   .metric-val {
-    font-size: 1.5rem;
+    font-size: 1.55rem;
     font-weight: 800;
     color: var(--primary);
   }
@@ -124,12 +147,128 @@
     color: #64748b;
     font-weight: 500;
   }
+
+  /* Interactive Tab Switcher */
+  .tab-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 0.8rem;
+  }
+  .tab-title-wrap h2 {
+    border-bottom: none;
+    margin-bottom: 0.2rem;
+    padding-bottom: 0;
+  }
+  .tab-subtitle {
+    font-size: 0.85rem;
+    color: #64748b;
+  }
+  .tab-switcher {
+    display: flex;
+    background: #f1f5f9;
+    padding: 4px;
+    border-radius: 10px;
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+  .tab-btn {
+    border: none;
+    background: transparent;
+    padding: 0.6rem 1rem;
+    border-radius: 7px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #475569;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    transition: all 0.15s ease-in-out;
+  }
+  .tab-btn:hover {
+    color: var(--dark);
+    background: rgba(255,255,255,0.6);
+  }
+  .tab-btn.active {
+    background: white;
+    color: var(--primary);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  .tab-btn.active.teal-mode {
+    color: #0f766e;
+  }
+  .track-summary-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+  .track-summary-banner.teal-theme {
+    background: #f0fdfa;
+    border-color: #99f6e4;
+  }
+  .track-desc {
+    font-size: 0.88rem;
+    color: #1e3a8a;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .track-desc.teal-theme {
+    color: #134e4a;
+  }
+  .track-actions {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+  }
+  .btn-sm {
+    padding: 0.45rem 0.9rem;
+    font-size: 0.84rem;
+    border-radius: 6px;
+  }
+
   iframe.preview-frame {
     width: 100%;
-    height: 900px;
+    height: 940px;
     border: 1px solid #cbd5e1;
     border-radius: 8px;
-    margin-top: 1rem;
+    background: white;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.03);
+  }
+
+  @media (max-width: 768px) {
+    .tab-switcher {
+      width: 100%;
+    }
+    .tab-btn {
+      flex: 1 1 100%;
+      justify-content: center;
+    }
+    iframe.preview-frame {
+      height: 700px;
+    }
+    .track-summary-banner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .track-actions {
+      width: 100%;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
   }
 </style>
 </head>
@@ -137,7 +276,7 @@
 
 <header>
   <h1>Mondip Sen</h1>
-  <div class="subtitle">Enterprise Solutions Architect &amp; Senior Infrastructure Engineer</div>
+  <div class="subtitle">Senior Infrastructure &amp; Data Protection Leader · 20+ Years Enterprise Experience</div>
   <div class="contact-bar">
     <span>New York, NY</span> · 
     <a href="tel:201-354-7564">201-354-7564</a> · 
@@ -150,7 +289,7 @@
 <div class="container">
   <div class="card">
     <h2>Executive Overview &amp; Enterprise Scale</h2>
-    <p>Enterprise Solutions Architect and Senior Infrastructure Engineer with <strong>20+ years experience</strong> designing, migrating, and operating enterprise backup, storage, and disaster recovery (DR) environments for Fortune 500 clients across healthcare, financial services, energy, consumer goods, and government.</p>
+    <p>Senior Infrastructure Engineer and Enterprise Solutions Architect with <strong>20+ years experience</strong> designing, migrating, and operating enterprise backup, storage, and disaster recovery (DR) environments for Fortune 500 clients across healthcare, financial services, energy, consumer goods, and government.</p>
     
     <div class="metrics-grid">
       <div class="metric-box">
@@ -172,17 +311,21 @@
     </div>
 
     <div class="btn-group">
-      <a href="Mondip_Sen_Resume.pdf" target="_blank" class="btn btn-primary">
-        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-        Download Solutions Architect Resume (PDF)
+      <a href="Mondip_Sen_Resume_backup_data_protection.pdf" target="_blank" class="btn btn-primary">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+        Backup &amp; Data Protection (PDF)
       </a>
-      <a href="Mondip_Sen_Resume_engineering_management.pdf" target="_blank" class="btn btn-primary" style="background:#0f766e;">
+      <a href="Mondip_Sen_Resume.pdf" target="_blank" class="btn btn-primary" style="background:#3b82f6;">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 00-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>
+        Solutions Architect (PDF)
+      </a>
+      <a href="Mondip_Sen_Resume_engineering_management.pdf" target="_blank" class="btn btn-teal">
         <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-        Download Engineering Management Resume (PDF)
+        Engineering Management (PDF)
       </a>
       <a href="https://github.com/senmondip" target="_blank" class="btn btn-secondary">
         <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"></path></svg>
-        38 GitHub Architecture Repos
+        38 GitHub Repos
       </a>
       <a href="tel:201-354-7564" class="btn btn-secondary">
         📞 Call 201-354-7564
@@ -190,11 +333,150 @@
     </div>
   </div>
 
-  <div class="card">
-    <h2>Interactive 2-Page Executive Resume</h2>
-    <iframe class="preview-frame" src="resume_viewer.html"></iframe>
+  <!-- Interactive Track Switcher Card -->
+  <div class="card" id="resume-preview-card">
+    <div class="tab-header">
+      <div class="tab-title-wrap">
+        <h2>Interactive Resume Preview</h2>
+        <div class="tab-subtitle">Select a track below to instantly switch specialization &amp; download match</div>
+      </div>
+      <div class="tab-switcher" role="tablist" aria-label="Resume Specialization Tracks">
+        <button id="tab-backup" class="tab-btn active" role="tab" aria-selected="true" onclick="selectTrack('backup')">
+          <span>🛡️</span> Backup &amp; Data Protection
+        </button>
+        <button id="tab-architect" class="tab-btn" role="tab" aria-selected="false" onclick="selectTrack('architect')">
+          <span>☁️</span> Solutions Architect
+        </button>
+        <button id="tab-management" class="tab-btn" role="tab" aria-selected="false" onclick="selectTrack('management')">
+          <span>👥</span> Engineering Management
+        </button>
+      </div>
+    </div>
+
+    <!-- Dynamic Track Summary & Quick Action Bar -->
+    <div id="track-banner" class="track-summary-banner">
+      <div id="track-description" class="track-desc">
+        <span>🛡️</span>
+        <span><strong>Core Track:</strong> 20+ Yrs enterprise backup &amp; DR estates (15+ PB, NetBackup STS, Commvault, Veeam, Rubrik, Cohesity, DR RTO &lt; 45m).</span>
+      </div>
+      <div class="track-actions">
+        <a id="dynamic-download-btn" href="Mondip_Sen_Resume_backup_data_protection.pdf" target="_blank" class="btn btn-primary btn-sm">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+          <span id="dynamic-download-label">Download Backup Resume (PDF)</span>
+        </a>
+        <a id="fullscreen-link" href="resume_viewer_backup.html" target="_blank" class="btn btn-secondary btn-sm" title="Open full 2-page sheet in separate tab">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          Fullscreen
+        </a>
+      </div>
+    </div>
+
+    <!-- Active Resume Viewer Iframe -->
+    <iframe id="resume-frame" class="preview-frame" src="resume_viewer_backup.html" title="Interactive Resume Viewer"></iframe>
   </div>
 </div>
+
+<script>
+  const TRACKS = {
+    backup: {
+      title: "Backup & Data Protection",
+      icon: "🛡️",
+      html: "resume_viewer_backup.html",
+      pdf: "Mondip_Sen_Resume_backup_data_protection.pdf",
+      btnLabel: "Download Backup Resume (PDF)",
+      desc: "<strong>Core Specialization:</strong> 20+ Yrs enterprise backup &amp; DR estates (15+ PB, NetBackup STS, Commvault, Veeam, Rubrik, Cohesity, DR RTO &lt; 45m).",
+      theme: "primary"
+    },
+    architect: {
+      title: "Solutions Architect",
+      icon: "☁️",
+      html: "resume_viewer_architect.html",
+      pdf: "Mondip_Sen_Resume.pdf",
+      btnLabel: "Download Solutions Architect Resume (PDF)",
+      desc: "<strong>Multi-Cloud &amp; Platform Architecture:</strong> Multi-cloud infrastructure (AWS, Azure, GCP), Kubernetes, Terraform, Ansible, CI/CD, &amp; SRE observability.",
+      theme: "primary"
+    },
+    management: {
+      title: "Engineering Management",
+      icon: "👥",
+      html: "resume_viewer_management.html",
+      pdf: "Mondip_Sen_Resume_engineering_management.pdf",
+      btnLabel: "Download Management Resume (PDF)",
+      desc: "<strong>Leadership &amp; Governance:</strong> 8+ years leading distributed engineering teams (US/EU/Asia), 24/7 follow-the-sun rotas, Agile/Scrum, hiring &amp; DR governance.",
+      theme: "teal"
+    }
+  };
+
+  function selectTrack(trackKey, updateUrl = true) {
+    const track = TRACKS[trackKey] || TRACKS.backup;
+    
+    // Update active tab buttons
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.classList.remove('active', 'teal-mode');
+      btn.setAttribute('aria-selected', 'false');
+    });
+
+    const activeBtn = document.getElementById('tab-' + trackKey);
+    if (activeBtn) {
+      activeBtn.classList.add('active');
+      activeBtn.setAttribute('aria-selected', 'true');
+      if (track.theme === 'teal') {
+        activeBtn.classList.add('teal-mode');
+      }
+    }
+
+    // Update banner styling and description
+    const banner = document.getElementById('track-banner');
+    const desc = document.getElementById('track-description');
+    const dlBtn = document.getElementById('dynamic-download-btn');
+    const dlLabel = document.getElementById('dynamic-download-label');
+    const fsLink = document.getElementById('fullscreen-link');
+    const frame = document.getElementById('resume-frame');
+
+    if (track.theme === 'teal') {
+      banner.className = 'track-summary-banner teal-theme';
+      desc.className = 'track-desc teal-theme';
+      dlBtn.className = 'btn btn-teal btn-sm';
+    } else {
+      banner.className = 'track-summary-banner';
+      desc.className = 'track-desc';
+      dlBtn.className = 'btn btn-primary btn-sm';
+    }
+
+    desc.innerHTML = `<span>${track.icon}</span><span>${track.desc}</span>`;
+    dlBtn.href = track.pdf;
+    dlLabel.textContent = track.btnLabel;
+    fsLink.href = track.html;
+
+    // Only update iframe src if changed to prevent unnecessary reloads
+    if (!frame.src.endsWith(track.html)) {
+      frame.src = track.html;
+    }
+
+    // Sync hash in URL without jump
+    if (updateUrl) {
+      history.replaceState(null, '', '#' + trackKey);
+    }
+  }
+
+  // Handle direct links with hash on page load
+  window.addEventListener('DOMContentLoaded', () => {
+    const hash = window.location.hash.replace('#', '').toLowerCase();
+    if (TRACKS[hash]) {
+      selectTrack(hash, false);
+    } else {
+      selectTrack('backup', false);
+    }
+  });
+
+  // Handle back/forward navigation
+  window.addEventListener('hashchange', () => {
+    const hash = window.location.hash.replace('#', '').toLowerCase();
+    if (TRACKS[hash]) {
+      selectTrack(hash, false);
+    }
+  });
+</script>
 
 </body>
 </html>
